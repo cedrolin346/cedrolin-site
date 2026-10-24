@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cedrolin Capital</title>
+<meta name="description" content="Cedrolin Capital is a private investment firm combining long-term fundamental equity investing with a disciplined derivatives strategy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23101414%27/%3E%3Cpath d=%27M16 6 L24 16 L16 26 L8 16 Z M16 6 V26%27 fill=%27none%27 stroke=%27%23a9c2b4%27 stroke-width=%271.6%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------- Direction tokens ---------- */
+body.v-c{ /* Modern */
+  --bg:#f4f4f1; --bg-alt:#e9eae5; --ink:#15191a; --muted:#5c6361; --rule:#d3d6cf;
+  --dark:#101414; --dark-ink:#eef0ec; --dark-muted:#9ea8a3; --dark-rule:#283130;
+  --accent:#a9c2b4; --accent-ink:#46634f; --hero:url(img/cedar.jpg); --hero-pos:center 60%;
+  --head:"Sora",sans-serif; --body:"Sora",sans-serif; --head-w:300; --head-ls:-.03em; --head-case:none;
+  --overlay:linear-gradient(180deg,rgba(10,14,14,.6) 0%,rgba(10,14,14,.45) 45%,rgba(10,14,14,.94) 100%);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1200px,100% - 3.5rem);margin-inline:auto}
+.kicker{font-family:var(--body);font-size:.76rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 1.75rem}
+.hero .kicker,.statement .kicker{color:var(--accent)}
+h1,h2,h3{font-family:var(--head);font-weight:var(--head-w);letter-spacing:var(--head-ls);margin:0;text-wrap:balance}
+
+/* ---------- Header + hero ---------- */
+.hero{position:relative;min-height:min(92vh,880px);display:flex;flex-direction:column;color:#fff;
+  background:var(--overlay),var(--hero) var(--hero-pos)/cover no-repeat,var(--dark)}
+header{position:relative;z-index:2}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:96px;border-bottom:1px solid rgba(255,255,255,.18)}
+.logo{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+.logo svg{width:30px;height:30px;flex:none}
+.logo span{font-family:var(--body);font-weight:600;font-size:.95rem;letter-spacing:.32em;text-transform:uppercase}
+.logo span em{font-style:normal;font-weight:300;opacity:.8}
+nav{display:flex;gap:2.4rem}
+nav a{font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:.85;padding:.75rem 0}
+nav a:hover{opacity:1}
+.hero-body{flex:1;display:flex;align-items:flex-end;padding-bottom:clamp(3.5rem,9vh,6.5rem)}
+.hero-body .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:4rem;align-items:end}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.6rem);line-height:1.02}
+.hero p:not(.kicker){margin:0;font-size:1.18rem;line-height:1.65;color:#fff;max-width:38ch;border-left:2px solid var(--accent);padding-left:1.5rem;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+
+/* ---------- Sections ---------- */
+section{padding:clamp(5rem,11vw,8.5rem) 0}
+.split{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem)}
+.split h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.12}
+.split .copy p{margin:0 0 1.25rem;color:var(--muted);font-size:1.08rem;max-width:58ch}
+.split .copy p:first-child{color:var(--ink);font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.55}
+
+.strategies{background:var(--bg-alt)}
+.strategies .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.strategies .head h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.12;max-width:16ch}
+.strategies .head p{margin:0;color:var(--muted);max-width:44ch}
+.strat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.strat{background:var(--bg);padding:clamp(2rem,4vw,3.5rem);display:flex;flex-direction:column;gap:1.25rem;min-height:400px;border-top:3px solid var(--ink);box-shadow:0 1px 0 var(--rule),0 18px 40px -28px rgba(0,0,0,.25)}
+.strat .num{font-family:var(--head);font-size:2.4rem;line-height:1;color:var(--accent-ink);letter-spacing:.02em}
+.strat h3{font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.15}
+.strat p{margin:0;color:var(--muted)}
+.strat dl{margin:auto 0 0;display:grid;grid-template-columns:1fr auto;font-size:.95rem}
+.strat dt,.strat dd{padding:.85rem 0;border-top:1px solid var(--rule)}
+.strat dt{color:var(--muted);font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center}
+.strat dd{margin:0;font-weight:500;text-align:right}
+
+.statement{background:var(--dark);color:var(--dark-ink);text-align:left}
+.statement blockquote{margin:0;font-family:var(--head);font-weight:var(--head-w);letter-spacing:var(--head-ls);font-size:clamp(2rem,4.4vw,3.8rem);line-height:1.15;max-width:22ch}
+.statement .kicker{color:var(--accent)}
+
+.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--ink);margin-top:3.5rem}
+.principles div{padding:2rem 2rem 0 0}
+.principles div + div{padding-left:2rem;border-left:1px solid var(--rule)}
+.principles b{display:block;font-family:var(--head);font-weight:var(--head-w);font-size:1.35rem;letter-spacing:var(--head-ls);margin:.75rem 0 .6rem}
+.principles small{font-family:var(--head);color:var(--accent-ink);font-size:.95rem}
+.principles span{color:var(--muted);font-size:.95rem}
+.principles-head h2{font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.12;max-width:18ch}
+
+.contact{border-top:1px solid var(--rule)}
+.contact .split h2{font-size:clamp(2rem,3.6vw,3.1rem)}
+.contact .rows{display:grid;gap:0;border-top:1px solid var(--ink)}
+.contact .row{display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.4rem 0;border-bottom:1px solid var(--rule)}
+.contact .row span{color:var(--muted);font-size:.85rem;letter-spacing:.16em;text-transform:uppercase}
+.contact .row a,.contact .row p{margin:0;font-size:1.1rem;text-decoration:none}
+.placeholder{background:#fff3c4;color:#5c4a00;font-size:.75rem;padding:.1rem .4rem;border-radius:2px;margin-left:.5rem;vertical-align:middle;letter-spacing:.04em}
+
+footer{background:var(--dark);color:var(--dark-muted);padding:4rem 0 3rem;font-size:.82rem;line-height:1.7}
+footer .top{display:flex;justify-content:space-between;align-items:center;padding-bottom:2.5rem;border-bottom:1px solid var(--dark-rule);margin-bottom:2rem;color:var(--dark-ink)}
+footer .legal{display:grid;grid-template-columns:1fr 3fr;gap:3rem}
+footer p{margin:0;max-width:95ch}
+
+
+@media (max-width:860px){
+  nav{display:none}
+  .hero-body .wrap,    .hero-body .wrap{gap:2rem}
+  .principles{grid-template-columns:1fr 1fr}
+  .principles div:nth-child(3){padding-left:0;border-left:0}
+  .strat{min-height:0}
+}
+@media (max-width:600px){
+  .principles{grid-template-columns:1fr}
+  .principles div,.principles div + div{padding:1.5rem 0;border-left:0;border-bottom:1px solid var(--rule)}
+}
+</style>
+</head>
+<body class="v-c">
+
+<div class="hero">
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#" aria-label="Cedrolin Capital home">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1" y="1" width="30" height="30"/><path d="M16 6 L24 16 L16 26 L8 16 Z"/><path d="M16 6 V26"/></svg>
+        <span>Cedrolin <em>Capital</em></span>
+      </a>
+      <nav aria-label="Main"><a href="#firm">The Firm</a><a href="#strategies">Strategies</a><a href="#philosophy">Philosophy</a><a href="#contact">Contact</a></nav>
+    </div>
+  </header>
+  <div class="hero-body">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Private Investment Firm</p>
+        <h1>Disciplined capital.<br>Enduring value.</h1>
+      </div>
+      <p>Cedrolin Capital combines fundamental, long-term equity investing with an actively managed derivatives strategy, built on independent research and rigorous risk control.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="firm">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">The Firm</p>
+        <h2>An owner's mindset, applied with precision.</h2>
+      </div>
+      <div class="copy">
+        <p>We approach every investment as a part-owner of a business, grounded in independent analysis of its economics, its management and its price.</p>
+        <p>Our core holdings are selected through a value-oriented discipline and held over a multi-year horizon. Alongside them, a short-term options strategy is managed under predefined risk limits and strict execution rules.</p>
+        <p>This allows a long horizon and complete independence of judgment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategies" class="strategies">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="kicker">Strategies</p>
+          <h2>Two disciplines. One framework.</h2>
+        </div>
+        <p>Patient ownership of exceptional businesses, paired with active, rules-based risk management.</p>
+      </div>
+      <div class="strat-grid">
+        <article class="strat">
+          <span class="num">I</span>
+          <h3>Long-Term Equity</h3>
+          <p>Concentrated positions in high-quality businesses acquired at a meaningful discount to our estimate of intrinsic value. We look for durable competitive advantages, capable management and sound balance sheets.</p>
+          <dl><dt>Approach</dt><dd>Fundamental value</dd><dt>Horizon</dt><dd>Multi-year</dd><dt>Instruments</dt><dd>Listed equities</dd></dl>
+        </article>
+        <article class="strat">
+          <span class="num">II</span>
+          <h3>Derivatives</h3>
+          <p>A short-term options strategy on listed securities. Position sizing, exposure and exit criteria are defined before any position is opened and reviewed continuously.</p>
+          <dl><dt>Approach</dt><dd>Defined-risk options</dd><dt>Horizon</dt><dd>Short-term</dd><dt>Instruments</dt><dd>Listed options</dd></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy" class="statement">
+    <div class="wrap">
+      <p class="kicker">Philosophy</p>
+      <blockquote>We measure risk first, and return second.</blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="principles-head">
+        <p class="kicker">Principles</p>
+        <h2>The standards behind every decision.</h2>
+      </div>
+      <div class="principles">
+        <div><small>01</small><b>Intrinsic value</b><span>We begin with what a business is worth, not with what the market is doing.</span></div>
+        <div><small>02</small><b>Margin of safety</b><span>We act only when the price leaves room to be wrong.</span></div>
+        <div><small>03</small><b>Defined risk</b><span>Every position carries a limit set before it is opened.</span></div>
+        <div><small>04</small><b>Independence</b><span>Our own research and our own judgment, free of outside pressure.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Correspondence</h2>
+      </div>
+      <div class="rows">
+        <div class="row"><span>General</span><a class="em" data-u="cedrolincapital" data-d="gmail.com" href="#contact">cedrolincapital [at] gmail.com</a></div>
+        <div class="row"><span>Location</span><p>United States</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <span class="logo"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true" style="width:26px;height:26px"><rect x="1" y="1" width="30" height="30"/><path d="M16 6 L24 16 L16 26 L8 16 Z"/><path d="M16 6 V26"/></svg><span>Cedrolin <em>Capital</em></span></span>
+      <span>© 2026 Cedrolin Capital. All rights reserved.</span>
+    </div>
+    <div class="legal">
+      <p>Important information</p>
+      <p>Cedrolin Capital is a private investment firm. It does not accept capital from outside investors, is not a registered investment adviser, and does not provide investment advice. Nothing on this website constitutes an offer to sell, or a solicitation of an offer to buy, any security, fund interest or investment service.</p>
+    </div>
+  </div>
+</footer>
+
+<script>document.querySelectorAll("a.em").forEach(a=>{const e=a.dataset.u+"@"+a.dataset.d;a.href="mailto:"+e;a.textContent=e;});</script>
+</body>
+</html>
